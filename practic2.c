@@ -44,21 +44,6 @@ void inputData()
 // function for veritying every number
 int verifyNumb(float *hrefToSide)
 {
-
-    if ((verifyChar(hrefToSide) == 0) || (*hrefToSide < 0))
-    {
-        clear();
-        return 0;
-    }
-    else
-    {
-        return 1;
-    }
-}
-
-// function for veritying char
-int verifyChar(float *hrefTohref)
-{
     char input_char[20], output_int[20];
     int position, arr_size, new_position;
     float num;
@@ -76,8 +61,17 @@ int verifyChar(float *hrefTohref)
             position = -1;
         }
     }
-    *hrefTohref = atof(input_char);
-    return *hrefTohref;
+    *hrefToSide = atof(input_char);
+
+    if (*hrefToSide <= 0)
+    {
+        clear();
+        return 0;
+    }
+    else
+    {
+        return 1;
+    }
 }
 
 // function for veritying the result
